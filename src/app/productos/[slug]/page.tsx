@@ -210,11 +210,11 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
     description: product.description,
     brand: {
       "@type": "Brand",
-      name: "Lumière"
+      name: "Aleafar"
     },
     offers: {
       "@type": "Offer",
-      url: `https://lumiere-joyeria.cl/productos/${product.slug}`,
+      url: `https://aleafar.cl/productos/${product.slug}`,
       priceCurrency: "CLP",
       price: product.price,
       availability: "https://schema.org/InStock"

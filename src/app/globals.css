@@ -110,3 +110,13 @@ html {
 /* Ocultar scrollbar manteniendo funcionalidad */
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Animación sutil de reflejo diagonal de derecha a izquierda */
+@keyframes shimmer-rtl {
+  0% { transform: translateX(200%) skewX(-20deg); }
+  100% { transform: translateX(-200%) skewX(-20deg); }
+}
+.animate-badge-shimmer {
+  animation: shimmer-rtl 3s infinite ease-in-out;
+}
+

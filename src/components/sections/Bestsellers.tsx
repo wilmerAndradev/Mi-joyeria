@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, ShoppingBag, Star, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { PRODUCTS, formatPrice, type Product } from "@/data/products";
@@ -51,20 +51,20 @@ function BestsellerCard({ product, index, isInView }: { product: Product; index:
       initial={{ opacity: 0, x: 50 }}
       animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      className="min-w-[280px] md:min-w-[320px] max-w-[320px] snap-start group cursor-pointer flex flex-col relative"
+      className="min-w-[280px] md:min-w-[320px] max-w-[320px] snap-start group cursor-pointer flex flex-col relative transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] bg-white p-3 rounded-md"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => {
         setHovered(false);
         setImageIndex(0);
       }}
     >
-      <div className="relative aspect-[4/5] overflow-hidden bg-pearl-gray/30 mb-4 rounded-sm transition-shadow duration-300 group-hover:shadow-xl">
+      <div className="relative aspect-[4/5] overflow-hidden bg-pearl-gray/30 mb-4 rounded-sm">
         {product.badge && (
-          <div className="absolute top-3 left-3 z-20 flex flex-col gap-2 items-start">
-            <span className="bg-black/95 px-3 py-1 text-[11px] font-medium tracking-[0.15em] uppercase inline-block">
-              <span className="bg-gradient-to-r from-gold from-40% via-gold via-50% to-gold to-60% bg-[length:250%_auto] bg-left group-hover:bg-right bg-clip-text text-transparent transition-all duration-[2500ms] ease-out">
-                {product.badge}
-              </span>
+          <div className="absolute top-3 left-3 z-20">
+            <span className="relative overflow-hidden bg-onyx text-white px-3 py-1 text-[10px] font-semibold tracking-[0.2em] uppercase inline-block shadow-sm">
+              <span className="relative z-10">{product.badge.replace("-", " ")}</span>
+              {/* Shimmer effect right to left (dorado, on hover, perfectly squared) */}
+              <div className="absolute top-0 left-[100%] z-0 bg-gradient-to-l from-transparent via-[#C9A84C]/40 to-transparent w-[150%] h-full skew-x-[-45deg] opacity-0 group-hover:opacity-100 group-hover:-translate-x-[200%] transition-all duration-[1500ms] ease-in-out pointer-events-none" />
             </span>
           </div>
         )}
@@ -73,7 +73,7 @@ function BestsellerCard({ product, index, isInView }: { product: Product; index:
           onClick={toggleWishlist}
           className={cn(
             "absolute top-3 right-3 z-30 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center transition-all duration-300",
-            isWishlisted ? "text-red-500 opacity-100" : "text-ivory/40 opacity-0 group-hover:opacity-100 hover:text-red-500"
+            isWishlisted ? "text-red-500 opacity-100" : "text-charcoal opacity-0 group-hover:opacity-100 hover:text-red-500"
           )}
           aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
         >
@@ -83,11 +83,29 @@ function BestsellerCard({ product, index, isInView }: { product: Product; index:
         
         {/* Images with Gallery/Carousel functionality */}
         <Link href={`/productos/${product.slug}`}>
-          <div
-            className="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-105"
-            style={{ backgroundImage: `url('${product.images[imageIndex]}')` }}
-          />
-          {/* Subtle dark overlay to highlight product on hover */}
+          <AnimatePresence initial={false}>
+            <motion.div
+              key={imageIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-[1500ms] group-hover:scale-105"
+              style={{ backgroundImage: `url('${product.images[imageIndex]}')` }}
+            />
+          </AnimatePresence>
+          {/* Diagonal shimmer effect — sweeps left→right on hover */}
+          <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
+            <div className="
+              absolute top-0 -left-full h-full w-1/2
+              bg-gradient-to-r from-transparent via-white/25 to-transparent
+              skew-x-[-20deg]
+              opacity-0 group-hover:opacity-100
+              group-hover:translate-x-[350%]
+              transition-all duration-[1500ms] ease-in-out
+            " />
+          </div>
+          {/* Subtle dark overlay */}
           <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
         </Link>
 
@@ -146,7 +164,7 @@ function BestsellerCard({ product, index, isInView }: { product: Product; index:
         </Link>
         <div className="mt-auto pt-1">
           <div className="flex items-baseline gap-3">
-            <span className="text-[17px] font-medium text-gold tracking-wide">{formatPrice(product.price)}</span>
+            <span className="text-[17px] font-medium text-onyx tracking-wide">{formatPrice(product.price)}</span>
           </div>
           <p className="text-[11px] text-charcoal mt-1">6 cuotas sin interés</p>
         </div>
@@ -159,6 +177,7 @@ export function Bestsellers() {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const [isHovered, setIsHovered] = useState(false);
 
   const bestsellers = PRODUCTS.filter(p => p.badge === "bestseller").slice(0, 8);
 
@@ -168,6 +187,26 @@ export function Bestsellers() {
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
+
+  // Auto-play carousel
+  useEffect(() => {
+    if (isHovered) return;
+    
+    const interval = setInterval(() => {
+      if (scrollRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        // Check if we're at the end (with a small 10px threshold)
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          // Scroll approximately one card width smoothly
+          scrollRef.current.scrollBy({ left: 350, behavior: "smooth" });
+        }
+      }
+    }, 1500);
+
+    return () => clearInterval(interval);
+  }, [isHovered]);
 
   return (
     <section className="py-24 bg-white border-t border-pearl-gray overflow-hidden" ref={containerRef}>
@@ -208,7 +247,11 @@ export function Bestsellers() {
         </div>
       </div>
 
-      <div className="relative">
+      <div 
+        className="relative"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <div 
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scrollbar px-6 md:px-12 pb-8 pt-4"

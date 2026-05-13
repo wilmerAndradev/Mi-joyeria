@@ -18,7 +18,7 @@ interface AdminState {
 // Mock credentials
 const MOCK_ADMIN: AdminUser = {
   name: 'Valentina Morales',
-  email: 'admin@lumiere.cl',
+  email: 'admin@aleafar.cl',
   role: 'admin',
 };
 
@@ -31,7 +31,7 @@ export const useAdminStore = create<AdminState>()(
       login: async (email: string, password: string) => {
         await new Promise((r) => setTimeout(r, 800)); // simulate network delay
 
-        if (email === 'admin@lumiere.cl' && password === 'lumiere2026') {
+        if (email === 'admin@aleafar.cl' && password === 'aleafar2026') {
           set({ isAuthenticated: true, user: MOCK_ADMIN });
           return { success: true };
         }
@@ -42,7 +42,7 @@ export const useAdminStore = create<AdminState>()(
       logout: () => set({ isAuthenticated: false, user: null }),
     }),
     {
-      name: 'lumiere-admin-auth',
+      name: 'aleafar-admin-auth',
     }
   )
 );

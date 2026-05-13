@@ -82,7 +82,7 @@ export const useCartStore = create<CartStore>()(
       },
     }),
     {
-      name: "lumiere-cart-storage",
+      name: "aleafar-cart-storage",
     }
   )
 );

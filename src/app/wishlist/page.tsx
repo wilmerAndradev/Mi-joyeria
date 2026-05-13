@@ -29,10 +29,10 @@ export default function WishlistPage() {
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen bg-black pt-32 pb-24 flex flex-col items-center justify-center px-6">
-        <Heart className="w-16 h-16 text-charcoal mb-6 stroke-1" />
-        <h1 className="text-3xl font-serif text-gold mb-4">Tu lista de deseos está vacía</h1>
-        <p className="text-ivory/60 text-center max-w-md mb-8">
+      <div className="min-h-screen bg-ivory pt-32 pb-24 flex flex-col items-center justify-center px-6">
+        <Heart className="w-16 h-16 text-charcoal/40 mb-6 stroke-1" />
+        <h1 className="text-3xl font-serif text-onyx mb-4">Tu lista de deseos está vacía</h1>
+        <p className="text-charcoal text-center max-w-md mb-8">
           Explora nuestras colecciones y guarda tus piezas favoritas para comprarlas más tarde.
         </p>
         <Link 
@@ -46,16 +46,16 @@ export default function WishlistPage() {
   }
 
   return (
-    <main className="min-h-screen bg-black pt-32 pb-24">
+    <main className="min-h-screen bg-ivory pt-32 pb-24">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-baseline mb-12">
           <div>
-            <h1 className="text-4xl font-serif text-gold mb-2">Mi Wishlist</h1>
-            <p className="text-ivory/60">{items.length} {items.length === 1 ? 'artículo' : 'artículos'} guardados</p>
+            <h1 className="text-4xl font-serif text-onyx mb-2">Mi Wishlist</h1>
+            <p className="text-charcoal">{items.length} {items.length === 1 ? 'artículo' : 'artículos'} guardados</p>
           </div>
           <button 
             onClick={clearWishlist}
-            className="text-sm text-ivory/60 hover:text-gold underline underline-offset-4 mt-4 md:mt-0 transition-colors"
+            className="text-sm text-charcoal hover:text-gold underline underline-offset-4 mt-4 md:mt-0 transition-colors"
           >
             Vaciar lista
           </button>
@@ -78,7 +78,7 @@ export default function WishlistPage() {
               
               <button 
                 onClick={() => removeItem(product.id)}
-                className="absolute top-4 right-4 z-10 w-8 h-8 bg-white/80 backdrop-blur flex items-center justify-center rounded-full text-ivory/60 hover:text-red-500 hover:bg-white transition-colors"
+                className="absolute top-4 right-4 z-10 w-8 h-8 bg-white/80 backdrop-blur flex items-center justify-center rounded-full text-charcoal hover:text-red-500 hover:bg-white transition-colors"
                 aria-label="Remove from wishlist"
               >
                 <Trash2 className="w-4 h-4" />
@@ -86,11 +86,11 @@ export default function WishlistPage() {
 
               <div className="p-5 flex flex-col flex-grow">
                 <Link href={`/productos/${product.slug}`} className="block flex-grow">
-                  <h3 className="font-serif text-lg text-gold mb-1 group-hover:text-gold transition-colors">{product.name}</h3>
-                  <p className="text-sm text-ivory/70 mb-3">{product.category}</p>
+                  <h3 className="font-serif text-lg text-onyx mb-1 group-hover:text-gold transition-colors">{product.name}</h3>
+                  <p className="text-sm text-charcoal mb-3">{product.category}</p>
                 </Link>
                 <div className="flex items-center justify-between mt-auto pt-4 border-t border-charcoal/30">
-                  <span className="text-lg font-medium text-gold">{formatPrice(product.price)}</span>
+                  <span className="text-lg font-medium text-onyx">{formatPrice(product.price)}</span>
                   <button 
                     onClick={() => addItemToCart(product)}
                     className="flex items-center gap-2 bg-gold text-black px-4 py-2 text-xs uppercase tracking-wider hover:bg-gold transition-colors"

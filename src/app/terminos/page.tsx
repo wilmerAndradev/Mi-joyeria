@@ -3,24 +3,24 @@ import Link from "next/link";
 
 export default function TerminosPage() {
   return (
-    <div className="min-h-screen bg-black pt-32 pb-24">
+    <div className="min-h-screen bg-ivory pt-32 pb-24">
       <div className="container mx-auto px-6 md:px-12 max-w-4xl">
         <div className="mb-12">
           <Link href="/" className="text-sm text-gold hover:underline mb-4 inline-block">
             ← Volver a inicio
           </Link>
-          <h1 className="text-4xl md:text-5xl font-serif text-gold mb-6">Términos y Condiciones</h1>
-          <p className="text-gold/60 text-sm">Última actualización: Mayo 2026</p>
+          <h1 className="text-4xl md:text-5xl font-serif text-onyx mb-6">Términos y Condiciones</h1>
+          <p className="text-charcoal text-sm">Última actualización: Mayo 2026</p>
         </div>
 
-        <div className="prose prose-lg prose-headings:font-serif prose-headings:text-gold prose-p:text-gold/80 prose-a:text-gold max-w-none">
-          <p className="lead text-xl text-gold/90 mb-8">
-            Bienvenido a LUMIÈRE Joyería. Al utilizar nuestro sitio web y adquirir nuestros productos, usted acepta los siguientes Términos y Condiciones de uso y venta.
+        <div className="prose prose-lg prose-headings:font-serif prose-headings:text-onyx prose-p:text-charcoal prose-a:text-gold max-w-none">
+          <p className="lead text-xl text-charcoal mb-8">
+            Bienvenido a ALEAFAR Joyería. Al utilizar nuestro sitio web y adquirir nuestros productos, usted acepta los siguientes Términos y Condiciones de uso y venta.
           </p>
 
           <h2 className="text-2xl mt-12 mb-4">1. Autenticidad de los Productos</h2>
           <p>
-            Garantizamos que todas las piezas comercializadas por LUMIÈRE Joyería están elaboradas con los materiales declarados. Todas nuestras gemas preciosas (diamantes, zafiros, esmeraldas, rubíes) sobre 0.50ct van acompañadas de su respectivo certificado de autenticidad (GIA o laboratorio independiente reconocido).
+            Garantizamos que todas las piezas comercializadas por ALEAFAR Joyería están elaboradas con los materiales declarados. Todas nuestras gemas preciosas (diamantes, zafiros, esmeraldas, rubíes) sobre 0.50ct van acompañadas de su respectivo certificado de autenticidad (GIA o laboratorio independiente reconocido).
           </p>
 
           <h2 className="text-2xl mt-12 mb-4">2. Precios y Pagos</h2>
@@ -35,7 +35,7 @@ export default function TerminosPage() {
 
           <h2 className="text-2xl mt-12 mb-4">4. Propiedad Intelectual</h2>
           <p>
-            Todo el contenido de este sitio web, incluyendo diseños de joyas, fotografías, textos, gráficos, logotipos e iconos de botones, es propiedad exclusiva de LUMIÈRE Joyería y está protegido por las leyes de propiedad intelectual chilenas e internacionales. No está permitido reproducir, duplicar, copiar o explotar nuestro contenido sin nuestro permiso expreso por escrito.
+            Todo el contenido de este sitio web, incluyendo diseños de joyas, fotografías, textos, gráficos, logotipos e iconos de botones, es propiedad exclusiva de ALEAFAR Joyería y está protegido por las leyes de propiedad intelectual chilenas e internacionales. No está permitido reproducir, duplicar, copiar o explotar nuestro contenido sin nuestro permiso expreso por escrito.
           </p>
 
           <h2 className="text-2xl mt-12 mb-4">5. Modificaciones de los Términos</h2>

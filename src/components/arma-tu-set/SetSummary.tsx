@@ -42,67 +42,77 @@ export function SetSummary() {
     setCartOpen(true);
   };
 
-  // Next discount tier
   const nextTier = DISCOUNT_TIERS.find((t) => t.min > count);
 
   return (
     <aside className="w-full lg:w-[400px] shrink-0">
-      <div className="sticky top-28 rounded-sm border border-pearl-gray overflow-hidden bg-white shadow-sm">
-        {/* Header */}
-        <div className="bg-pearl-gray/30 px-6 py-6 border-b border-pearl-gray">
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-onyx" />
+      <div className="sticky top-28 rounded-sm border border-pearl-gray overflow-hidden bg-ivory shadow-sm">
+
+        {/* ── Header ─────────────────────────────────── */}
+        <div className="px-6 py-6 border-b border-pearl-gray">
+          <div className="flex items-center gap-2 mb-1">
+            <Sparkles className="w-5 h-5 text-gold" />
             <h3 className="text-xl font-serif text-onyx tracking-wide">
-              Tu Set Lumière
+              Tu Set Aleafar
             </h3>
           </div>
-          <p className="text-sm text-charcoal/60 mt-1 font-light">
+          <p className="text-sm text-charcoal font-light ml-7">
             {count === 0
               ? "Selecciona al menos 2 piezas"
               : count === 1
-              ? "1 pieza · Agrega 1 más para obtener descuento"
+              ? "1 pieza · Agrega 1 más para descuento"
               : `${count} piezas · ${pct}% de descuento aplicado`}
           </p>
         </div>
 
-        {/* Discount progress */}
-        <div className="px-6 py-5 border-b border-pearl-gray bg-white">
-          <div className="flex justify-between mb-4">
-            {DISCOUNT_TIERS.map((tier) => (
-              <div key={tier.min} className="flex flex-col items-center gap-2">
-                <div
-                  className={cn(
-                    "w-12 h-12 rounded-full border-2 flex items-center justify-center text-sm font-medium transition-all duration-500",
-                    count >= tier.min
-                      ? "border-onyx bg-onyx text-ivory shadow-sm shadow-onyx/10"
-                      : "border-pearl-gray text-charcoal/40"
-                  )}
-                >
-                  -{tier.pct}%
+        {/* ── Discount tiers ─────────────────────────── */}
+        <div className="px-6 py-6 border-b border-pearl-gray bg-white">
+          <div className="flex justify-between mb-5">
+            {DISCOUNT_TIERS.map((tier) => {
+              const active = count >= tier.min;
+              return (
+                <div key={tier.min} className="flex flex-col items-center gap-2">
+                  <div
+                    className={cn(
+                      "w-14 h-14 rounded-full border-2 flex items-center justify-center text-sm font-semibold transition-all duration-500",
+                      active
+                        ? "border-gold bg-gold text-onyx shadow-md shadow-gold/20"
+                        : "border-charcoal/30 text-charcoal bg-white"
+                    )}
+                  >
+                    -{tier.pct}%
+                  </div>
+                  <span
+                    className={cn(
+                      "text-[11px] label-caps font-semibold tracking-widest",
+                      active ? "text-gold" : "text-charcoal/70"
+                    )}
+                  >
+                    {tier.label}
+                  </span>
                 </div>
-                <span className="text-xs text-charcoal/60 label-caps font-medium">
-                  {tier.label}
-                </span>
-              </div>
-            ))}
+              );
+            })}
           </div>
+
           {/* Progress bar */}
-          <div className="h-1 bg-pearl-gray rounded-full mt-2 overflow-hidden">
+          <div className="h-1 bg-pearl-gray rounded-full overflow-hidden">
             <motion.div
-              className="h-full bg-onyx rounded-full"
+              className="h-full bg-gradient-to-r from-gold/70 to-gold rounded-full"
               animate={{ width: `${Math.min((count / 4) * 100, 100)}%` }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             />
           </div>
+
           {nextTier && count < 4 && (
-            <p className="text-xs text-onyx mt-3 font-medium text-center">
+            <p className="text-xs text-onyx font-medium text-center mt-3 tracking-wide">
               ✦ {nextTier.min - count} pieza{nextTier.min - count > 1 ? "s" : ""} más para -{nextTier.pct}%
             </p>
           )}
         </div>
 
-        {/* Selected items */}
-        <div className="px-6 py-5 space-y-4 min-h-[220px]">
+        {/* ── Selected items ─────────────────────────── */}
+        <div className="px-6 py-5 space-y-3 min-h-[240px]">
           <AnimatePresence>
             {SET_STEPS.map((step) => {
               const product = selection[step.category as SetCategory];
@@ -116,50 +126,51 @@ export function SetSummary() {
                   transition={{ duration: 0.25 }}
                 >
                   {product ? (
-                    <div className="flex items-center gap-4 group">
-                      {/* Thumbnail */}
-                      <div className="relative w-16 h-16 rounded-sm overflow-hidden bg-pearl-gray/30 shrink-0 border border-pearl-gray shadow-sm">
+                    /* ── Filled slot ── */
+                    <div className="flex items-center gap-4 group p-2 rounded-sm hover:bg-pearl-gray/30 transition-colors">
+                      <div className="relative w-14 h-14 rounded-sm overflow-hidden bg-pearl-gray/30 shrink-0 border border-pearl-gray shadow-sm">
                         <Image
                           src={product.images[0]}
                           alt={product.name}
                           fill
                           className="object-cover"
-                          sizes="64px"
+                          sizes="56px"
                         />
                       </div>
-                      {/* Info */}
                       <div className="flex-1 min-w-0">
-                        <p className="text-base font-serif text-onyx leading-tight truncate">
+                        <p className="text-sm font-serif text-onyx leading-tight truncate">
                           {product.name}
                         </p>
-                        <p className="text-xs text-charcoal/50 font-light label-caps mt-1">
+                        <p className="text-[10px] text-charcoal/50 label-caps mt-0.5">
                           {step.label}
                         </p>
-                        <p className="text-sm font-medium text-onyx mt-1">
+                        <p className="text-sm font-semibold text-gold mt-0.5">
                           {formatPrice(product.price)}
                         </p>
                       </div>
-                      {/* Remove */}
                       <button
                         onClick={() => removeProduct(step.category as SetCategory)}
                         className="w-7 h-7 rounded-full border border-pearl-gray flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:border-onyx hover:bg-onyx hover:text-ivory shrink-0"
+                        aria-label="Eliminar pieza"
                       >
-                        <X className="w-4 h-4 text-charcoal/40 hover:text-ivory transition-colors" />
+                        <X className="w-3.5 h-3.5 text-charcoal group-hover:text-ivory transition-colors" />
                       </button>
                     </div>
                   ) : (
-                    <div className="flex items-center gap-4 opacity-80 group hover:opacity-100 transition-opacity">
-                      <div className="w-16 h-16 rounded-sm border border-dashed border-pearl-gray/50 bg-pearl-gray/10 flex items-center justify-center shrink-0 transition-colors group-hover:border-pearl-gray">
-                        <span className="font-serif text-2xl text-charcoal/20">
+                    /* ── Empty slot — improved contrast ── */
+                    <div className="flex items-center gap-4 p-2">
+                      {/* Dashed placeholder thumbnail */}
+                      <div className="w-14 h-14 rounded-sm border-2 border-dashed border-charcoal/25 bg-pearl-gray/40 flex items-center justify-center shrink-0">
+                        <span className="text-lg text-charcoal/40 select-none">
                           {step.emoji}
                         </span>
                       </div>
                       <div>
-                        <p className="text-sm text-charcoal/80 font-medium">
+                        <p className="text-sm text-charcoal font-medium">
                           Sin {step.label.toLowerCase()}
                         </p>
                         <p className="text-xs text-charcoal/50 font-light mt-0.5">
-                          Selecciona arriba
+                          Selecciona una pieza arriba
                         </p>
                       </div>
                     </div>
@@ -170,21 +181,21 @@ export function SetSummary() {
           </AnimatePresence>
         </div>
 
-        {/* Totals */}
+        {/* ── Totals ─────────────────────────────────── */}
         <AnimatePresence>
           {count > 0 && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="px-6 py-5 border-t border-pearl-gray space-y-3"
+              className="px-6 py-5 border-t border-pearl-gray space-y-3 bg-white"
             >
-              <div className="flex justify-between text-sm text-charcoal/70 font-light">
+              <div className="flex justify-between text-sm text-charcoal/60 font-light">
                 <span>Subtotal</span>
                 <span>{formatPrice(originalTotal)}</span>
               </div>
               {pct > 0 && (
-                <div className="flex justify-between text-sm text-onyx font-medium">
+                <div className="flex justify-between text-sm text-gold font-semibold">
                   <span>Descuento set ({pct}%)</span>
                   <span>-{formatPrice(discountAmt)}</span>
                 </div>
@@ -197,18 +208,18 @@ export function SetSummary() {
           )}
         </AnimatePresence>
 
-        {/* CTA */}
-        <div className="px-6 pb-6 pt-2 space-y-3">
+        {/* ── CTA ────────────────────────────────────── */}
+        <div className="px-6 pb-6 pt-3 space-y-3 bg-ivory">
           <button
             onClick={handleAddToCart}
             disabled={count === 0}
             className={cn(
-              "w-full flex items-center justify-center gap-2 py-4 text-base font-medium transition-all duration-300 rounded-sm",
+              "w-full flex items-center justify-center gap-2 py-4 text-sm font-semibold transition-all duration-300 rounded-sm tracking-[0.1em] uppercase",
               count >= 2
-                ? "bg-onyx text-ivory hover:opacity-90 hover:shadow-lg hover:-translate-y-0.5"
+                ? "bg-gold text-onyx hover:brightness-105 hover:shadow-lg hover:shadow-gold/20 hover:-translate-y-0.5"
                 : count === 1
                 ? "bg-onyx text-ivory hover:bg-charcoal"
-                : "bg-pearl-gray text-charcoal/50 cursor-not-allowed"
+                : "bg-pearl-gray text-charcoal/50 cursor-not-allowed border border-charcoal/15"
             )}
           >
             <ShoppingBag className="w-5 h-5" />
@@ -216,14 +227,14 @@ export function SetSummary() {
               ? "Selecciona piezas"
               : count === 1
               ? "Agregar al carrito"
-              : `Agregar set al carrito`}
-            {count >= 2 && <ChevronRight className="w-5 h-5 ml-1" />}
+              : "Agregar set al carrito"}
+            {count >= 2 && <ChevronRight className="w-4 h-4 ml-1" />}
           </button>
 
           {count > 0 && (
             <button
               onClick={clearSet}
-              className="w-full text-center text-xs label-caps text-charcoal/50 hover:text-onyx transition-colors py-2"
+              className="w-full text-center text-xs label-caps text-charcoal/40 hover:text-onyx transition-colors py-1.5"
             >
               Vaciar set
             </button>

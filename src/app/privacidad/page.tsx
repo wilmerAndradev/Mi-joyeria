@@ -3,19 +3,19 @@ import Link from "next/link";
 
 export default function PrivacidadPage() {
   return (
-    <div className="min-h-screen bg-black pt-32 pb-24">
+    <div className="min-h-screen bg-ivory pt-32 pb-24">
       <div className="container mx-auto px-6 md:px-12 max-w-4xl">
         <div className="mb-12">
           <Link href="/" className="text-sm text-gold hover:underline mb-4 inline-block">
             ← Volver a inicio
           </Link>
-          <h1 className="text-4xl md:text-5xl font-serif text-gold mb-6">Políticas de Privacidad</h1>
-          <p className="text-gold/60 text-sm">Última actualización: Mayo 2026</p>
+          <h1 className="text-4xl md:text-5xl font-serif text-onyx mb-6">Políticas de Privacidad</h1>
+          <p className="text-charcoal text-sm">Última actualización: Mayo 2026</p>
         </div>
 
-        <div className="prose prose-lg prose-headings:font-serif prose-headings:text-gold prose-p:text-gold/80 prose-a:text-gold max-w-none">
-          <p className="lead text-xl text-gold/90 mb-8">
-            En LUMIÈRE Joyería, valoramos la privacidad de nuestros clientes tanto como la autenticidad de nuestras gemas. Esta Política de Privacidad describe cómo recopilamos, usamos y protegemos su información personal.
+        <div className="prose prose-lg prose-headings:font-serif prose-headings:text-onyx prose-p:text-charcoal prose-a:text-gold max-w-none">
+          <p className="lead text-xl text-charcoal mb-8">
+            En ALEAFAR Joyería, valoramos la privacidad de nuestros clientes tanto como la autenticidad de nuestras gemas. Esta Política de Privacidad describe cómo recopilamos, usamos y protegemos su información personal.
           </p>
 
           <h2 className="text-2xl mt-12 mb-4">1. Información que Recopilamos</h2>
@@ -51,7 +51,7 @@ export default function PrivacidadPage() {
           <p>
             Si tiene alguna pregunta o inquietud sobre nuestra Política de Privacidad, por favor contáctenos a:
             <br />
-            <strong>Email:</strong> privacidad@lumierejoyeria.cl
+            <strong>Email:</strong> privacidad@aleafar.cl
             <br />
             <strong>Teléfono:</strong> +56 9 1234 5678
           </p>

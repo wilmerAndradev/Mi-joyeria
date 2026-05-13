@@ -227,7 +227,7 @@ export function ShoppableVideos() {
   };
 
   return (
-    <section className="py-24 bg-ivory overflow-hidden" ref={sectionRef}>
+    <section className="py-24 bg-onyx overflow-hidden" ref={sectionRef}>
       <div className="container mx-auto px-6">
 
         {/* Header */}
@@ -237,15 +237,15 @@ export function ShoppableVideos() {
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="text-xs tracking-[0.3em] uppercase text-charcoal mb-3"
+              className="text-xs tracking-[0.3em] uppercase text-ivory/60 mb-3"
             >
-              Lumière en Movimiento
+              Aleafar en Movimiento
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-4xl md:text-5xl font-serif text-onyx leading-tight"
+              className="text-4xl md:text-5xl font-serif text-ivory leading-tight"
             >
               Piezas <span className="text-gold italic">Vivas</span>
             </motion.h2>
@@ -253,7 +253,7 @@ export function ShoppableVideos() {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.7, delay: 0.25 }}
-              className="text-charcoal mt-3 max-w-sm text-sm font-normal"
+              className="text-ivory/70 mt-3 max-w-sm text-sm font-normal"
             >
               Descubre cómo cada joya cobra vida. Desliza y explora nuestra colección en movimiento.
             </motion.p>
@@ -263,14 +263,14 @@ export function ShoppableVideos() {
           <div className="hidden md:flex gap-3">
             <button
               onClick={() => scroll("left")}
-              className="w-11 h-11 rounded-full border border-pearl-gray text-charcoal flex items-center justify-center hover:border-gold hover:text-gold transition-all duration-300"
+              className="w-11 h-11 rounded-full border border-white/20 text-ivory/60 flex items-center justify-center hover:border-gold hover:text-gold hover:bg-gold/10 transition-all duration-300"
               aria-label="Anterior"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={() => scroll("right")}
-              className="w-11 h-11 rounded-full border border-pearl-gray text-charcoal flex items-center justify-center hover:border-gold hover:text-gold transition-all duration-300"
+              className="w-11 h-11 rounded-full border border-white/20 text-ivory/60 flex items-center justify-center hover:border-gold hover:text-gold hover:bg-gold/10 transition-all duration-300"
               aria-label="Siguiente"
             >
               <ChevronRight className="w-5 h-5" />
@@ -292,7 +292,7 @@ export function ShoppableVideos() {
         {/* Scroll hint dots */}
         <div className="flex justify-center gap-1.5 mt-8">
           {SHOPPABLE_VIDEOS.map((_, i) => (
-            <div key={i} className={`h-px transition-all duration-300 ${i === 0 ? "w-8 bg-onyx" : "w-4 bg-pearl-gray"}`} />
+            <div key={i} className={`h-px transition-all duration-300 ${i === 0 ? "w-8 bg-gold" : "w-4 bg-white/20"}`} />
           ))}
         </div>
       </div>

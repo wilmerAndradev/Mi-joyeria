@@ -32,47 +32,40 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background: dark radial with gold glow */}
-      <div className="absolute inset-0 bg-[#0D0D0F]" />
+    <div className="min-h-screen flex items-center justify-center relative bg-ivory overflow-hidden">
+      {/* Background: subtle elegant accents */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-20"
-        style={{ background: 'radial-gradient(circle, #C9A84C 0%, transparent 70%)' }}
+        className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full opacity-30 pointer-events-none"
+        style={{ background: 'radial-gradient(circle, var(--color-gold-light) 0%, transparent 60%)', transform: 'translate(30%, -30%)' }}
       />
-
-      {/* Subtle grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(#C9A84C 1px, transparent 1px), linear-gradient(90deg, #C9A84C 1px, transparent 1px)`,
-          backgroundSize: '60px 60px',
-        }}
+        className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full opacity-20 pointer-events-none"
+        style={{ background: 'radial-gradient(circle, var(--color-pearl-gray) 0%, transparent 60%)', transform: 'translate(-20%, 20%)' }}
       />
 
       {/* Login card */}
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-10 w-full max-w-md mx-4"
       >
-        <div className="bg-white/[0.05] backdrop-blur-xl border border-white/[0.10] rounded-2xl p-8 shadow-2xl">
+        <div className="bg-white border border-pearl-gray rounded-sm p-10 shadow-[0_20px_50px_rgba(10,10,10,0.07)]">
           {/* Logo */}
-          <div className="text-center mb-8">
-            <p className="label-caps text-[#C9A84C] tracking-[0.35em] mb-3">Lumière</p>
-            <h1 className="font-serif text-white text-2xl font-medium tracking-tight">
-              Panel de Administración
+          <div className="text-center mb-10">
+            <h1 className="font-serif text-onyx text-3xl font-medium tracking-tight mb-2">
+              ALEAFAR
             </h1>
-            <p className="text-white/40 text-xs mt-2 tracking-wider font-light">
-              Acceso exclusivo para gestión interna
+            <p className="label-caps text-charcoal/60 tracking-[0.2em]">
+              Gestión Interna
             </p>
           </div>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-6">
             {/* Email */}
-            <div className="space-y-1.5">
-              <label className="label-caps text-white/50 block">
+            <div className="space-y-2">
+              <label htmlFor="admin-email" className="label-caps text-charcoal block">
                 Correo Electrónico
               </label>
               <input
@@ -82,17 +75,14 @@ export default function AdminLoginPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@lumiere.cl"
-                className="w-full bg-white/[0.06] border border-white/[0.12] rounded-lg px-4 py-3
-                           text-white placeholder:text-white/25 text-sm
-                           focus:outline-none focus:border-[#C9A84C]/60 focus:bg-white/[0.08]
-                           transition-all duration-200"
+                placeholder="admin@aleafar.cl"
+                className="input-field"
               />
             </div>
 
             {/* Password */}
-            <div className="space-y-1.5">
-              <label className="label-caps text-white/50 block">
+            <div className="space-y-2">
+              <label htmlFor="admin-password" className="label-caps text-charcoal block">
                 Contraseña
               </label>
               <div className="relative">
@@ -104,15 +94,12 @@ export default function AdminLoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••••"
-                  className="w-full bg-white/[0.06] border border-white/[0.12] rounded-lg px-4 py-3 pr-12
-                             text-white placeholder:text-white/25 text-sm
-                             focus:outline-none focus:border-[#C9A84C]/60 focus:bg-white/[0.08]
-                             transition-all duration-200"
+                  className="input-field pr-12"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword((v) => !v)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-white/30 hover:text-white/60 transition-colors p-1"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-charcoal/40 hover:text-onyx transition-colors p-2"
                   aria-label={showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'}
                 >
                   {showPassword ? (
@@ -140,7 +127,7 @@ export default function AdminLoginPage() {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="text-red-400/90 text-xs tracking-wide bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-3"
+                  className="text-error text-xs tracking-wide bg-error/5 border border-error/20 rounded-sm px-4 py-3"
                 >
                   {error}
                 </motion.p>
@@ -152,12 +139,7 @@ export default function AdminLoginPage() {
               id="admin-login-submit"
               type="submit"
               disabled={loading}
-              className="w-full mt-2 py-3 px-6 rounded-lg font-sans text-sm tracking-[0.15em] uppercase
-                         bg-[#C9A84C] text-[#0D0D0F] font-medium
-                         hover:bg-[#D4B55E] hover:-translate-y-0.5
-                         transition-all duration-200 shadow-lg shadow-[#C9A84C]/20
-                         disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none
-                         flex items-center justify-center gap-2"
+              className="btn-primary w-full flex items-center justify-center gap-2 text-[11px] tracking-[0.2em] uppercase font-medium"
             >
               {loading ? (
                 <>
@@ -170,16 +152,15 @@ export default function AdminLoginPage() {
                   Verificando...
                 </>
               ) : (
-                'Ingresar al Panel'
+                'Ingresar'
               )}
             </button>
           </form>
 
           {/* Demo hint */}
-          <div className="mt-6 pt-6 border-t border-white/[0.06]">
-            <p className="text-center text-white/25 text-[11px] tracking-wide font-light">
-              Demo: <span className="text-white/40">admin@lumiere.cl</span> /{' '}
-              <span className="text-white/40">lumiere2026</span>
+          <div className="mt-8 pt-6 border-t border-pearl-gray">
+            <p className="text-center text-charcoal/60 text-[11px] tracking-wide font-light">
+              Demo: admin@aleafar.cl / aleafar2026
             </p>
           </div>
         </div>

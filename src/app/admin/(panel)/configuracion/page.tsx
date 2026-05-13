@@ -13,7 +13,7 @@ export default function AdminConfiguracionPage() {
 
   // Perfil state
   const [name, setName] = useState(user?.name ?? 'Valentina Morales');
-  const [email, setEmail] = useState(user?.email ?? 'valentina@lumierejoyas.cl');
+  const [email, setEmail] = useState(user?.email ?? 'valentina@aleafarjoyas.cl');
   const [phone, setPhone] = useState('+56 9 8765 4321');
 
   // Seguridad state

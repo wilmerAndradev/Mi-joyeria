@@ -101,7 +101,7 @@ export default function ConfirmacionPage() {
           transition={{ delay: 0.8 }}
           className="text-xs text-charcoal/50 mt-8"
         >
-          ¿Tienes preguntas? Escríbenos a <a href="mailto:hola@lumiere.cl" className="underline hover:text-onyx transition-colors">hola@lumiere.cl</a>
+          ¿Tienes preguntas? Escríbenos a <a href="mailto:hola@aleafar.cl" className="underline hover:text-onyx transition-colors">hola@aleafar.cl</a>
         </motion.p>
       </div>
     </div>

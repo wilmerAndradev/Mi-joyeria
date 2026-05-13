@@ -42,7 +42,7 @@ export function SocialProof() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-serif text-onyx mb-4"
           >
-            Voces de <span className="text-gold italic">Lumière</span>
+            Voces de <span className="text-gold italic">Aleafar</span>
           </motion.h2>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}

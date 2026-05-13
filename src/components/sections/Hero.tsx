@@ -94,10 +94,19 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-          className="text-4xl md:text-6xl lg:text-7xl font-serif font-normal text-ivory mb-8 leading-[1.1] max-w-3xl tracking-tight"
+          className="text-4xl md:text-6xl lg:text-7xl font-serif font-normal text-ivory mb-4 leading-[1.1] max-w-3xl tracking-tight"
         >
           El Arte de <br className="hidden md:block" /> lo <span className="italic text-gold">Eterno</span>
         </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.65, ease: "easeOut" }}
+          className="font-serif italic text-gold/90 text-xl md:text-2xl mb-8 tracking-wide"
+        >
+          Esto es tuyo. Siempre lo fue.
+        </motion.p>
         
         <motion.p 
           initial={{ opacity: 0 }}

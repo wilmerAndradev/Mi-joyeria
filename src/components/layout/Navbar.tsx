@@ -54,8 +54,8 @@ export function Navbar() {
   // 3. any other page     → onyx bg, ivory/gold text (always solid)
   const solid = isScrolled || !isHome;
 
-  const textColor = solid ? "text-onyx" : "text-ivory";
-  const textMuted = solid ? "text-charcoal/70" : "text-ivory/80";
+  const textColor = "text-ivory";
+  const textMuted = solid ? "text-ivory/70" : "text-ivory/80";
 
   return (
     <>
@@ -65,7 +65,7 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-40 transition-all duration-400",
         solid
-          ? "bg-ivory/95 backdrop-blur-md py-4 border-b border-pearl-gray shadow-sm"
+          ? "bg-onyx/95 backdrop-blur-md py-4 border-b border-gold/20 shadow-sm"
           : "bg-transparent py-6"
       )}
       initial={{ y: -100 }}
@@ -88,7 +88,7 @@ export function Navbar() {
           href="/"
           className={cn("font-serif italic text-xl md:text-2xl tracking-[0.15em] font-normal hover:text-gold transition-colors duration-300", textColor)}
         >
-          Lumière
+          Aleafar
         </Link>
 
         {/* Desktop Navigation */}
@@ -124,7 +124,7 @@ export function Navbar() {
           <Link href="/wishlist" aria-label="Wishlist" className="relative hidden md:block hover:text-gold transition-colors duration-200">
             <Heart className="w-[18px] h-[18px]" strokeWidth={1.5} />
             {mounted && wishlistItems.length > 0 && (
-              <span className="absolute -top-1.5 -right-1.5 bg-onyx text-ivory text-[9px] font-bold w-[16px] h-[16px] rounded-full flex items-center justify-center shadow-sm">
+              <span className="absolute -top-1.5 -right-1.5 bg-gold text-ivory text-[9px] font-bold w-[16px] h-[16px] rounded-full flex items-center justify-center shadow-sm">
                 {wishlistItems.length}
               </span>
             )}
@@ -139,7 +139,7 @@ export function Navbar() {
           >
             <ShoppingBag className="w-[18px] h-[18px]" strokeWidth={1.5} />
             {mounted && totalItemsCount > 0 && (
-              <span className="absolute -top-1.5 -right-1.5 bg-onyx text-ivory text-[9px] font-bold w-[16px] h-[16px] rounded-full flex items-center justify-center shadow-sm">
+              <span className="absolute -top-1.5 -right-1.5 bg-gold text-ivory text-[9px] font-bold w-[16px] h-[16px] rounded-full flex items-center justify-center shadow-sm">
                 {totalItemsCount}
               </span>
             )}

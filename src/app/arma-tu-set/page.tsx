@@ -12,10 +12,12 @@ export default function ArmatuSetPage() {
   return (
     <div className="min-h-screen bg-ivory">
       {/* ── Page Hero ─────────────────────────────────────── */}
-      <section className="relative bg-white pt-28 pb-16 overflow-hidden border-b border-pearl-gray">
-        {/* Ambient glow */}
-        <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-gold/5 rounded-full blur-[80px] pointer-events-none" />
+      <section className="relative bg-onyx pt-28 pb-16 overflow-hidden border-b border-gold/20">
+        {/* Ambient gold glow */}
+        <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-gold/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-gold/8 rounded-full blur-[80px] pointer-events-none" />
+        {/* Fine diagonal grain */}
+        <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3L3 1' stroke='%23C9A84C' stroke-width='0.5'/%3E%3C/svg%3E\")" }} />
 
         <div className="container mx-auto px-6 relative z-10">
           {/* Back breadcrumb */}
@@ -27,7 +29,7 @@ export default function ArmatuSetPage() {
           >
             <Link
               href="/colecciones"
-              className="inline-flex items-center gap-2 text-charcoal/50 hover:text-onyx transition-colors text-xs label-caps group"
+              className="inline-flex items-center gap-2 text-ivory/40 hover:text-gold transition-colors text-xs label-caps group"
             >
               <ArrowLeft className="w-3 h-3 transition-transform group-hover:-translate-x-1" />
               Volver al catálogo
@@ -43,14 +45,14 @@ export default function ArmatuSetPage() {
               className="flex items-center gap-2 mb-4 text-gold"
             >
               <Sparkles className="w-4 h-4 text-gold" />
-              <span className="label-caps tracking-widest text-charcoal">Experiencia exclusiva</span>
+              <span className="label-caps tracking-widest text-gold/70">Experiencia exclusiva</span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-serif text-onyx leading-tight mb-4"
+              className="text-4xl md:text-5xl lg:text-6xl font-serif text-ivory leading-tight mb-4"
             >
               Arma tu{" "}
               <em className="text-gold not-italic">Set Perfecto</em>
@@ -60,10 +62,10 @@ export default function ArmatuSetPage() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className="text-charcoal text-base font-light max-w-lg leading-relaxed"
+              className="text-ivory/60 text-base font-light max-w-lg leading-relaxed"
             >
               Combina piezas de distintas categorías y obtén hasta un{" "}
-              <strong className="text-onyx font-semibold">20% de descuento</strong>{" "}
+              <strong className="text-gold font-semibold">20% de descuento</strong>{" "}
               automático al completar tu set.
             </motion.p>
           </div>
@@ -82,10 +84,10 @@ export default function ArmatuSetPage() {
             ].map((tier, i) => (
               <div
                 key={i}
-                className="flex items-center gap-2 border border-pearl-gray px-4 py-2 rounded-sm bg-ivory shadow-sm"
+                className="flex items-center gap-2 border border-gold/30 px-4 py-2 rounded-sm bg-white/5 backdrop-blur-sm"
               >
-                <span className="label-caps text-charcoal/60">{tier.label}</span>
-                <span className="text-onyx text-xs font-medium">{tier.pct}</span>
+                <span className="label-caps text-ivory/50">{tier.label}</span>
+                <span className="text-gold text-xs font-semibold tracking-wider">{tier.pct}</span>
               </div>
             ))}
           </motion.div>
@@ -145,7 +147,7 @@ export default function ArmatuSetPage() {
       {/* ── Bottom note ───────────────────────────────────── */}
       <div className="border-t border-pearl-gray py-6 mt-4">
         <div className="container mx-auto px-6">
-          <p className="text-center text-xs text-charcoal/50 font-light">
+          <p className="text-center text-[13px] text-charcoal/70 font-light">
             ✦ Los descuentos de set se aplican automáticamente al agregar al carrito · Válido para sets de 2 a 4 piezas de distintas categorías
           </p>
         </div>

@@ -85,7 +85,7 @@ function buildCsv(type: ExportType): { filename: string; csv: string } {
       p.inStock ? 'Sí' : 'No',
       p.badge ?? '', String(p.rating), String(p.reviews),
     ]);
-    return { filename: `lumiere_productos_${date}.csv`, csv: arrayToCsv(headers, rows) };
+    return { filename: `aleafar_productos_${date}.csv`, csv: arrayToCsv(headers, rows) };
   }
 
   if (type === 'pedidos') {
@@ -97,7 +97,7 @@ function buildCsv(type: ExportType): { filename: string; csv: string } {
       String(o.total), o.status, o.paymentMethod,
       o.address ?? '',
     ]);
-    return { filename: `lumiere_pedidos_${date}.csv`, csv: arrayToCsv(headers, rows) };
+    return { filename: `aleafar_pedidos_${date}.csv`, csv: arrayToCsv(headers, rows) };
   }
 
   if (type === 'inventario') {
@@ -107,7 +107,7 @@ function buildCsv(type: ExportType): { filename: string; csv: string } {
       const estado = stock === 0 ? 'Sin Stock' : stock <= 5 ? 'Bajo Stock' : 'En Stock';
       return [p.id, p.name, p.category, p.material, p.inStock ? 'Sí' : 'No', String(stock), estado];
     });
-    return { filename: `lumiere_inventario_${date}.csv`, csv: arrayToCsv(headers, rows) };
+    return { filename: `aleafar_inventario_${date}.csv`, csv: arrayToCsv(headers, rows) };
   }
 
   // clientes
@@ -116,7 +116,7 @@ function buildCsv(type: ExportType): { filename: string; csv: string } {
     o.customerName, o.email, o.phone ?? '', o.address ?? '',
     String(o.total), '1',
   ]);
-  return { filename: `lumiere_clientes_${date}.csv`, csv: arrayToCsv(headers, rows) };
+  return { filename: `aleafar_clientes_${date}.csv`, csv: arrayToCsv(headers, rows) };
 }
 
 export default function AdminExportPage() {

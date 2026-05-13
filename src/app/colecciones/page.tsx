@@ -50,7 +50,9 @@ function QuickView({ product, onClose }: { product: Product; onClose: () => void
             <X className="w-5 h-5" />
           </button>
           {product.badge && (
-            <span className="text-[11px] font-medium tracking-[0.15em] uppercase text-gold mb-3">{product.badge}</span>
+            <span className="bg-onyx text-white px-3 py-1 text-[10px] font-semibold tracking-[0.2em] uppercase inline-block mb-3 shadow-sm">
+              {product.badge.replace("-", " ")}
+            </span>
           )}
           <h2 className="font-serif text-2xl text-onyx mb-2">{product.name}</h2>
           <div className="flex items-center gap-2 mb-4">
@@ -63,7 +65,7 @@ function QuickView({ product, onClose }: { product: Product; onClose: () => void
           </div>
           {/* Price — prominent gold */}
           <div className="mb-1">
-            <span className="text-2xl font-normal text-gold">{formatPrice(product.price)}</span>
+            <span className="text-2xl font-normal text-onyx">{formatPrice(product.price)}</span>
             {product.compareAtPrice && (
               <span className="ml-3 text-base text-charcoal/50 line-through">{formatPrice(product.compareAtPrice)}</span>
             )}
@@ -132,7 +134,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: index * 0.07, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="group relative"
+        className="group relative transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] bg-white p-3 rounded-md"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => {
           setHovered(false);
@@ -140,14 +142,14 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
         }}
       >
         {/* Image */}
-        <div className="relative aspect-[4/5] overflow-hidden bg-pearl-gray mb-4 rounded-sm transition-shadow duration-300 group-hover:shadow-xl">
+        <div className="relative aspect-[4/5] overflow-hidden bg-pearl-gray mb-4 rounded-sm">
           {/* Badge */}
           {product.badge && (
-            <div className="absolute top-3 left-3 z-20 flex flex-col gap-2 items-start">
-              <span className="bg-white/95 px-3 py-1 text-[11px] font-medium tracking-[0.15em] uppercase inline-block border border-pearl-gray shadow-sm">
-                <span className="bg-gradient-to-r from-gold from-40% via-gold via-50% to-gold to-60% bg-[length:250%_auto] bg-left group-hover:bg-right bg-clip-text text-transparent transition-all duration-[2500ms] ease-out">
-                  {product.badge === "oferta" && discount ? `-${discount}%` : product.badge.replace("-", " ")}
-                </span>
+            <div className="absolute top-3 left-3 z-20">
+              <span className="relative overflow-hidden bg-onyx text-white px-3 py-1 text-[10px] font-semibold tracking-[0.2em] uppercase inline-block shadow-sm">
+                <span className="relative z-10">{product.badge === "oferta" && discount ? `-${discount}%` : product.badge.replace("-", " ")}</span>
+                {/* Shimmer effect right to left (dorado, on hover, perfectly squared) */}
+                <div className="absolute top-0 left-[100%] z-0 bg-gradient-to-l from-transparent via-[#C9A84C]/40 to-transparent w-[150%] h-full skew-x-[-45deg] opacity-0 group-hover:opacity-100 group-hover:-translate-x-[200%] transition-all duration-[1500ms] ease-in-out pointer-events-none" />
               </span>
             </div>
           )}
@@ -177,10 +179,28 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           
           {/* Images with Gallery/Carousel functionality */}
           <Link href={`/productos/${product.slug}`}>
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-105"
-              style={{ backgroundImage: `url('${product.images[imageIndex]}')` }}
-            />
+            <AnimatePresence initial={false}>
+              <motion.div
+                key={imageIndex}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-[1500ms] group-hover:scale-105"
+                style={{ backgroundImage: `url('${product.images[imageIndex]}')` }}
+              />
+            </AnimatePresence>
+            {/* Diagonal shimmer effect — sweeps left→right on hover */}
+            <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
+              <div className="
+                absolute top-0 -left-full h-full w-1/2
+                bg-gradient-to-r from-transparent via-white/25 to-transparent
+                skew-x-[-20deg]
+                opacity-0 group-hover:opacity-100
+                group-hover:translate-x-[350%]
+                transition-all duration-[1500ms] ease-in-out
+              " />
+            </div>
             {/* Subtle dark overlay to highlight product on hover */}
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
           </Link>
@@ -245,7 +265,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           <p className="text-xs text-charcoal mb-3 font-normal tracking-wide truncate">{product.material}</p>
           {/* Price — PROMINENT Gold accent */}
           <div className="flex items-baseline gap-3">
-            <span className="text-[17px] font-medium text-gold tracking-wide">{formatPrice(product.price)}</span>
+            <span className="text-[17px] font-medium text-onyx tracking-wide">{formatPrice(product.price)}</span>
             {product.compareAtPrice && (
               <span className="text-sm text-charcoal/60 line-through">{formatPrice(product.compareAtPrice)}</span>
             )}
@@ -504,7 +524,7 @@ export default function CatalogPage({ initialCategory = "all" }: { initialCatego
       {/* Page Header — onyx band with gold serif heading */}
       <div className="bg-onyx pt-24 border-b border-gold/10">
         <div className="container mx-auto px-6 pb-10">
-          <p className="text-xs tracking-[0.35em] uppercase text-gold/60 mb-3">— Lumière —</p>
+          <p className="text-xs tracking-[0.35em] uppercase text-gold/60 mb-3">— Aleafar —</p>
           <h1 className="font-serif text-4xl md:text-5xl text-ivory mb-2 leading-tight">
             {activeCategory === "all"
               ? "Toda la Colección"
@@ -537,7 +557,7 @@ export default function CatalogPage({ initialCategory = "all" }: { initialCatego
           {/* Main Content */}
           <div className="flex-1 min-w-0">
             {/* Results count */}
-            <div className="flex items-center justify-between mb-8 pb-4 border-b border-pearl-gray">
+            <div className="hidden md:flex items-center justify-between mb-8 pb-4 border-b border-pearl-gray">
               <p className="text-xs tracking-[0.1em] uppercase text-charcoal">
                 {filtered.length} {filtered.length === 1 ? "modelo" : "modelos"}
               </p>

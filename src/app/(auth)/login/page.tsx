@@ -30,46 +30,46 @@ export default function LoginPage() {
         >
           <div className="mb-12">
             <Link href="/" className="font-serif italic text-2xl tracking-[0.15em] text-gold block mb-10">
-              Lumière
+              Aleafar
             </Link>
-            <h1 className="text-3xl font-serif text-gold mb-3">Bienvenido de nuevo</h1>
-            <p className="text-gold/60 text-sm">
+            <h1 className="text-3xl font-serif text-onyx mb-3">Bienvenido de nuevo</h1>
+            <p className="text-charcoal text-sm">
               Ingresa a tu cuenta para ver tus pedidos, lista de deseos y ofertas exclusivas.
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <label className="text-xs font-semibold tracking-widest uppercase text-gold/80">
+              <label className="text-xs font-semibold tracking-widest uppercase text-onyx">
                 Correo Electrónico
               </label>
               <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gold/40" strokeWidth={1.5} />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-charcoal/40" strokeWidth={1.5} />
                 <input
                   type="email"
                   required
                   placeholder="tu@email.com"
-                  className="w-full pl-12 pr-4 py-3 bg-charcoal/10 border border-charcoal/30 rounded-xl focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all text-gold placeholder:text-gold/30"
+                  className="w-full pl-12 pr-4 py-3 bg-charcoal/10 border border-charcoal/30 rounded-xl focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all text-onyx placeholder:text-charcoal/40"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
               <div className="flex justify-between items-center">
-                <label className="text-xs font-semibold tracking-widest uppercase text-gold/80">
+                <label className="text-xs font-semibold tracking-widest uppercase text-onyx">
                   Contraseña
                 </label>
-                <Link href="#" className="text-xs text-gold hover:underline">
+                <Link href="#" className="text-xs text-charcoal hover:text-gold hover:underline">
                   ¿Olvidaste tu contraseña?
                 </Link>
               </div>
               <div className="relative">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gold/40" strokeWidth={1.5} />
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-charcoal/40" strokeWidth={1.5} />
                 <input
                   type="password"
                   required
                   placeholder="••••••••"
-                  className="w-full pl-12 pr-4 py-3 bg-charcoal/10 border border-charcoal/30 rounded-xl focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all text-gold placeholder:text-gold/30"
+                  className="w-full pl-12 pr-4 py-3 bg-charcoal/10 border border-charcoal/30 rounded-xl focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all text-onyx placeholder:text-charcoal/40"
                 />
               </div>
             </div>
@@ -91,7 +91,7 @@ export default function LoginPage() {
           </form>
 
           <div className="mt-10 pt-8 border-t border-charcoal/30 text-center">
-            <p className="text-gold/60 text-sm">
+            <p className="text-charcoal text-sm">
               ¿No tienes una cuenta?{" "}
               <Link href="/registro" className="text-gold font-medium hover:underline">
                 Regístrate aquí
@@ -105,14 +105,15 @@ export default function LoginPage() {
       <div className="hidden lg:block lg:w-1/2 relative">
         <Image
           src="https://images.unsplash.com/photo-1599643478524-fb66f70d00f8?q=80&w=1200&auto=format&fit=crop"
-          alt="Alta Joyería Lumière"
+          alt="Alta Joyería Aleafar"
           fill
           className="object-cover"
           priority
         />
         <div className="absolute inset-0 bg-gold/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-onyx/90 via-onyx/30 to-transparent" />
         <div className="absolute bottom-12 left-12 right-12 text-white">
-          <blockquote className="text-2xl font-serif italic mb-4">
+          <blockquote className="text-2xl font-serif italic mb-4 drop-shadow-md">
             "La joyería no cambia el mundo, pero sí cambia a las personas que la llevan."
           </blockquote>
           <p className="text-white/80 font-medium tracking-widest uppercase text-xs">

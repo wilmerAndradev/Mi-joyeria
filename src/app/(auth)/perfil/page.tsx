@@ -11,7 +11,7 @@ const MOCK_USER = {
   name: "Victoria C.",
   email: "victoria.c@example.com",
   memberSince: "Octubre 2023",
-  tier: "Lumière Gold",
+  tier: "Aleafar Gold",
 };
 
 const MOCK_ORDERS = [
@@ -44,23 +44,23 @@ export default function ProfilePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-black pt-32 pb-24">
+    <div className="min-h-screen bg-ivory pt-32 pb-24">
       <div className="container mx-auto px-6 md:px-12 max-w-6xl">
         
         {/* Header Profile */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12 pb-8 border-b border-charcoal/50">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12 pb-8 border-b border-pearl-gray">
           <div className="flex items-center gap-6">
-            <div className="w-20 h-20 bg-gold text-gold flex items-center justify-center rounded-full text-2xl font-serif italic shadow-md">
+            <div className="w-20 h-20 bg-gold text-white flex items-center justify-center rounded-full text-2xl font-serif italic shadow-md">
               {MOCK_USER.name.charAt(0)}
             </div>
             <div>
-              <h1 className="text-3xl font-serif text-gold mb-1">Hola, {MOCK_USER.name}</h1>
-              <p className="text-gold/60 text-sm">Miembro desde {MOCK_USER.memberSince} • <span className="text-gold font-medium">{MOCK_USER.tier}</span></p>
+              <h1 className="text-3xl font-serif text-onyx mb-1">Hola, {MOCK_USER.name}</h1>
+              <p className="text-charcoal text-sm">Miembro desde {MOCK_USER.memberSince} • <span className="text-gold font-medium">{MOCK_USER.tier}</span></p>
             </div>
           </div>
           <button 
             onClick={() => window.location.href = "/"}
-            className="flex items-center gap-2 text-gold/50 hover:text-gold transition-colors text-sm font-medium"
+            className="flex items-center gap-2 text-charcoal hover:text-gold transition-colors text-sm font-medium"
           >
             <LogOut className="w-4 h-4" />
             Cerrar Sesión
@@ -80,8 +80,8 @@ export default function ProfilePage() {
                     onClick={() => setActiveTab(tab.id)}
                     className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all whitespace-nowrap text-left ${
                       isActive 
-                        ? "bg-gold text-gold shadow-md" 
-                        : "text-gold/70 hover:bg-white hover:text-gold hover:shadow-sm"
+                        ? "bg-onyx text-ivory shadow-md" 
+                        : "text-charcoal hover:bg-white hover:text-onyx hover:shadow-sm"
                     }`}
                   >
                     <Icon className="w-5 h-5" strokeWidth={isActive ? 2 : 1.5} />
@@ -103,7 +103,7 @@ export default function ProfilePage() {
                   exit={{ opacity: 0, y: -10 }}
                   className="space-y-6"
                 >
-                  <h2 className="text-xl font-serif text-gold mb-6">Historial de Pedidos</h2>
+                  <h2 className="text-xl font-serif text-onyx mb-6">Historial de Pedidos</h2>
                   {MOCK_ORDERS.map((order) => (
                     <div key={order.id} className="bg-white p-6 rounded-2xl shadow-sm border border-charcoal/30 flex flex-col sm:flex-row gap-6 items-start sm:items-center">
                       <div className="w-24 h-24 bg-charcoal/20 rounded-xl overflow-hidden shrink-0">
@@ -111,16 +111,16 @@ export default function ProfilePage() {
                       </div>
                       <div className="flex-1">
                         <div className="flex flex-wrap items-center justify-between gap-4 mb-2">
-                          <p className="text-xs font-semibold tracking-widest text-gold/50 uppercase">Pedido {order.id}</p>
+                          <p className="text-xs font-semibold tracking-widest text-charcoal uppercase">Pedido {order.id}</p>
                           <span className="px-3 py-1 bg-[#C9A84C]/10 text-[#C9A84C] text-xs font-medium rounded-full">
                             {order.status}
                           </span>
                         </div>
-                        <h3 className="text-lg font-medium text-gold mb-1">{order.item}</h3>
-                        <p className="text-sm text-gold/60">Realizado el {order.date}</p>
+                        <h3 className="text-lg font-medium text-onyx mb-1">{order.item}</h3>
+                        <p className="text-sm text-charcoal">Realizado el {order.date}</p>
                       </div>
                       <div className="flex flex-col items-end gap-3 sm:border-l sm:border-charcoal/30 sm:pl-6">
-                        <p className="font-medium text-lg text-gold">{order.total}</p>
+                        <p className="font-medium text-lg text-onyx">{order.total}</p>
                         <button className="text-sm font-medium text-gold hover:underline flex items-center gap-1">
                           Ver detalles <ChevronRight className="w-4 h-4" />
                         </button>
@@ -138,21 +138,21 @@ export default function ProfilePage() {
                   exit={{ opacity: 0, y: -10 }}
                   className="bg-white p-8 rounded-2xl shadow-sm border border-charcoal/30 max-w-2xl"
                 >
-                  <h2 className="text-xl font-serif text-gold mb-8">Información Personal</h2>
+                  <h2 className="text-xl font-serif text-onyx mb-8">Información Personal</h2>
                   <form className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="text-xs font-semibold tracking-widest uppercase text-gold/80">Nombre</label>
-                        <input type="text" defaultValue="Victoria" className="w-full px-4 py-3 bg-charcoal/10 border border-charcoal/30 rounded-xl focus:outline-none focus:border-gold text-gold" />
+                        <label className="text-xs font-semibold tracking-widest uppercase text-onyx">Nombre</label>
+                        <input type="text" defaultValue="Victoria" className="w-full px-4 py-3 bg-charcoal/10 border border-charcoal/30 rounded-xl focus:outline-none focus:border-gold text-onyx" />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-xs font-semibold tracking-widest uppercase text-gold/80">Apellidos</label>
-                        <input type="text" defaultValue="C." className="w-full px-4 py-3 bg-charcoal/10 border border-charcoal/30 rounded-xl focus:outline-none focus:border-gold text-gold" />
+                        <label className="text-xs font-semibold tracking-widest uppercase text-onyx">Apellidos</label>
+                        <input type="text" defaultValue="C." className="w-full px-4 py-3 bg-charcoal/10 border border-charcoal/30 rounded-xl focus:outline-none focus:border-gold text-onyx" />
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <label className="text-xs font-semibold tracking-widest uppercase text-gold/80">Correo Electrónico</label>
-                      <input type="email" defaultValue={MOCK_USER.email} className="w-full px-4 py-3 bg-charcoal/10 border border-charcoal/30 rounded-xl focus:outline-none focus:border-gold text-gold" />
+                      <label className="text-xs font-semibold tracking-widest uppercase text-onyx">Correo Electrónico</label>
+                      <input type="email" defaultValue={MOCK_USER.email} className="w-full px-4 py-3 bg-charcoal/10 border border-charcoal/30 rounded-xl focus:outline-none focus:border-gold text-onyx" />
                     </div>
                     <button type="button" className="bg-gold text-black px-8 py-3 rounded-xl font-medium tracking-wide hover:bg-charcoal transition-colors">
                       Guardar Cambios
@@ -169,13 +169,13 @@ export default function ProfilePage() {
                   exit={{ opacity: 0, y: -10 }}
                 >
                   <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-xl font-serif text-gold">Mis Direcciones</h2>
+                    <h2 className="text-xl font-serif text-onyx">Mis Direcciones</h2>
                     <button className="text-sm font-medium text-gold hover:underline">Añadir nueva</button>
                   </div>
                   <div className="bg-white p-6 rounded-2xl shadow-sm border border-charcoal/30 max-w-md relative">
                     <span className="absolute top-6 right-6 px-2 py-1 bg-gold text-black text-[10px] uppercase tracking-wider rounded-md">Principal</span>
-                    <h3 className="font-medium text-gold mb-2">Casa</h3>
-                    <p className="text-sm text-gold/70 leading-relaxed mb-4">
+                    <h3 className="font-medium text-onyx mb-2">Casa</h3>
+                    <p className="text-sm text-charcoal leading-relaxed mb-4">
                       Victoria C.<br/>
                       Av. Vitacura 2808, Depto 402<br/>
                       Vitacura, Región Metropolitana<br/>
@@ -197,9 +197,9 @@ export default function ProfilePage() {
                   exit={{ opacity: 0, y: -10 }}
                   className="text-center py-12"
                 >
-                  <Heart className="w-12 h-12 text-gold/20 mx-auto mb-4" />
-                  <h2 className="text-xl font-serif text-gold mb-2">Tu lista de deseos</h2>
-                  <p className="text-gold/60 mb-6">Administra tus favoritos desde la página dedicada.</p>
+                  <Heart className="w-12 h-12 text-charcoal/30 mx-auto mb-4" />
+                  <h2 className="text-xl font-serif text-onyx mb-2">Tu lista de deseos</h2>
+                  <p className="text-charcoal mb-6">Administra tus favoritos desde la página dedicada.</p>
                   <Link href="/wishlist" className="inline-block bg-gold text-black px-8 py-3 rounded-xl font-medium tracking-wide hover:bg-charcoal transition-colors">
                     Ir a Wishlist
                   </Link>

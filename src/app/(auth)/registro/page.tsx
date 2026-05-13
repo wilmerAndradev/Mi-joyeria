@@ -30,56 +30,56 @@ export default function RegisterPage() {
         >
           <div className="mb-10">
             <Link href="/" className="font-serif italic text-2xl tracking-[0.15em] text-gold block mb-10">
-              Lumière
+              Aleafar
             </Link>
-            <h1 className="text-3xl font-serif text-gold mb-3">Únete a nosotros</h1>
-            <p className="text-gold/60 text-sm">
+            <h1 className="text-3xl font-serif text-onyx mb-3">Únete a nosotros</h1>
+            <p className="text-charcoal text-sm">
               Crea una cuenta para disfrutar de una experiencia de compra personalizada y beneficios exclusivos.
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="space-y-2">
-              <label className="text-xs font-semibold tracking-widest uppercase text-gold/80">
+              <label className="text-xs font-semibold tracking-widest uppercase text-onyx">
                 Nombre Completo
               </label>
               <div className="relative">
-                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gold/40" strokeWidth={1.5} />
+                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-charcoal/40" strokeWidth={1.5} />
                 <input
                   type="text"
                   required
                   placeholder="Tu nombre"
-                  className="w-full pl-12 pr-4 py-3 bg-charcoal/10 border border-charcoal/30 rounded-xl focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all text-gold placeholder:text-gold/30"
+                  className="w-full pl-12 pr-4 py-3 bg-charcoal/10 border border-charcoal/30 rounded-xl focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all text-onyx placeholder:text-charcoal/40"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-semibold tracking-widest uppercase text-gold/80">
+              <label className="text-xs font-semibold tracking-widest uppercase text-onyx">
                 Correo Electrónico
               </label>
               <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gold/40" strokeWidth={1.5} />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-charcoal/40" strokeWidth={1.5} />
                 <input
                   type="email"
                   required
                   placeholder="tu@email.com"
-                  className="w-full pl-12 pr-4 py-3 bg-charcoal/10 border border-charcoal/30 rounded-xl focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all text-gold placeholder:text-gold/30"
+                  className="w-full pl-12 pr-4 py-3 bg-charcoal/10 border border-charcoal/30 rounded-xl focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all text-onyx placeholder:text-charcoal/40"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-semibold tracking-widest uppercase text-gold/80">
+              <label className="text-xs font-semibold tracking-widest uppercase text-onyx">
                 Contraseña
               </label>
               <div className="relative">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gold/40" strokeWidth={1.5} />
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-charcoal/40" strokeWidth={1.5} />
                 <input
                   type="password"
                   required
                   placeholder="Mínimo 8 caracteres"
-                  className="w-full pl-12 pr-4 py-3 bg-charcoal/10 border border-charcoal/30 rounded-xl focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all text-gold placeholder:text-gold/30"
+                  className="w-full pl-12 pr-4 py-3 bg-charcoal/10 border border-charcoal/30 rounded-xl focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all text-onyx placeholder:text-charcoal/40"
                 />
               </div>
             </div>
@@ -98,13 +98,13 @@ export default function RegisterPage() {
                 </>
               )}
             </button>
-            <p className="text-[10px] text-gold/40 text-center mt-2">
+            <p className="text-[10px] text-charcoal/60 text-center mt-2">
               Al registrarte, aceptas nuestros Términos de Servicio y Política de Privacidad.
             </p>
           </form>
 
           <div className="mt-8 pt-6 border-t border-charcoal/30 text-center">
-            <p className="text-gold/60 text-sm">
+            <p className="text-charcoal text-sm">
               ¿Ya tienes una cuenta?{" "}
               <Link href="/login" className="text-gold font-medium hover:underline">
                 Inicia sesión aquí
@@ -118,14 +118,15 @@ export default function RegisterPage() {
       <div className="hidden lg:block lg:w-1/2 relative bg-gold">
         <Image
           src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=1200&auto=format&fit=crop"
-          alt="Alta Joyería Lumière - Creación"
+          alt="Alta Joyería Aleafar - Creación"
           fill
           className="object-cover opacity-90"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-gold/80 to-transparent" />
+        <div className="absolute inset-0 bg-gold/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-onyx/90 via-onyx/30 to-transparent" />
         <div className="absolute bottom-12 left-12 right-12 text-white">
-          <h2 className="text-3xl font-serif mb-3">El arte de lo eterno</h2>
+          <h2 className="text-3xl font-serif mb-3 drop-shadow-md">El arte de lo eterno</h2>
           <p className="text-white/80 font-light max-w-md">
             Descubre piezas diseñadas con maestría, hechas para capturar tus momentos más preciados.
           </p>

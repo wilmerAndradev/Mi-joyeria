@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Panel de Administración — Lumière',
-  description: 'Back-office de gestión para Lumière Joyería Fina',
+  title: 'Panel de Administración — Aleafar',
+  description: 'Back-office de gestión para Aleafar Joyería Fina',
   robots: { index: false, follow: false },
 };
 

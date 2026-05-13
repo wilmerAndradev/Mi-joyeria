@@ -9,10 +9,10 @@ export default function GlobalError({
 }) {
   return (
     <html lang="es">
-      <body className="bg-black flex items-center justify-center min-h-screen p-6 font-sans text-ivory">
+      <body className="bg-ivory flex items-center justify-center min-h-screen p-6 font-sans text-onyx">
         <div className="text-center max-w-md">
-          <h1 className="font-serif text-3xl text-gold mb-4">Error Crítico</h1>
-          <p className="text-ivory/80 mb-8">
+          <h1 className="font-serif text-3xl text-onyx mb-4">Error Crítico</h1>
+          <p className="text-charcoal mb-8">
             Lo sentimos, ha ocurrido un error fatal en la aplicación. Por favor, intenta recargar la página.
           </p>
           <button

@@ -104,7 +104,7 @@ export default function AdminSidebar() {
           <span className="text-[#C9A84C] text-xs font-serif font-medium">L</span>
         </div>
         <div>
-          <p className="text-white text-sm font-serif tracking-wide leading-none">Lumière</p>
+          <p className="text-white text-sm font-serif tracking-wide leading-none">Aleafar</p>
           <p className="text-white/30 text-[10px] tracking-[0.2em] uppercase mt-0.5">Admin Panel</p>
         </div>
       </div>
