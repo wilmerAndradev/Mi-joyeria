@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Josefin_Sans, Playfair_Display } from "next/font/google";
+import { Josefin_Sans, Playfair_Display, Cormorant_Garamond } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/layout/CartDrawer";
 import { WhatsAppWidget } from "@/components/layout/WhatsAppWidget";
-import { SplashScreen } from "@/components/layout/SplashScreen";
+import { WelcomeGiftPopup } from "@/components/layout/WelcomeGiftPopup";
 import "./globals.css";
 
 const josefin = Josefin_Sans({
@@ -18,6 +18,14 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
   display: "swap",
 });
@@ -68,14 +76,27 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${josefin.variable} ${playfair.variable} h-full antialiased`}
+      className={`${josefin.variable} ${playfair.variable} ${cormorant.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans text-onyx bg-ivory">
+      <body suppressHydrationWarning className="min-h-full flex flex-col font-sans text-onyx bg-ivory">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <SplashScreen />
+        {/* Server-rendered blur overlay — prevents flash of page content before React hydrates.
+            WelcomeGiftPopup removes this div on mount once it takes control. */}
+        <div
+          id="initial-blur"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 109,
+            background: 'rgba(26,26,26,0.6)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+          }}
+        />
+        <WelcomeGiftPopup />
         <Navbar />
         <CartDrawer />
         <main className="flex-1 w-full flex flex-col">{children}</main>

@@ -192,14 +192,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
             </AnimatePresence>
             {/* Diagonal shimmer effect — sweeps left→right on hover */}
             <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
-              <div className="
-                absolute top-0 -left-full h-full w-1/2
-                bg-gradient-to-r from-transparent via-white/25 to-transparent
-                skew-x-[-20deg]
-                opacity-0 group-hover:opacity-100
-                group-hover:translate-x-[350%]
-                transition-all duration-[1500ms] ease-in-out
-              " />
+              <div className="absolute top-0 -left-full h-full w-1/2 bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-[-20deg] opacity-0 group-hover:opacity-100 group-hover:translate-x-[350%] transition-all duration-[1500ms] ease-in-out" />
             </div>
             {/* Subtle dark overlay to highlight product on hover */}
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
