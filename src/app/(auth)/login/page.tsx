@@ -104,7 +104,7 @@ export default function LoginPage() {
       {/* Columna Derecha - Imagen */}
       <div className="hidden lg:block lg:w-1/2 relative">
         <Image
-          src="https://images.unsplash.com/photo-1599643478524-fb66f70d00f8?q=80&w=1200&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=1200&auto=format&fit=crop"
           alt="Alta Joyería Aleafar"
           fill
           className="object-cover"

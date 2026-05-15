@@ -21,7 +21,7 @@ const MOCK_ORDERS = [
     status: "Entregado",
     total: "$1.250.000",
     item: "Solitario Eternity 1ct",
-    image: "https://images.unsplash.com/photo-1605100804763-247f66156ce4?q=80&w=200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?q=80&w=200&auto=format&fit=crop",
   },
   {
     id: "ORD-7104-CL",

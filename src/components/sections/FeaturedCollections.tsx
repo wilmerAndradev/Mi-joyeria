@@ -8,20 +8,20 @@ const COLLECTIONS = [
   {
     title: "Anillos de Compromiso",
     price: "Desde $450.000",
-    image: "https://images.unsplash.com/photo-1605100804763-247f66156ce4?q=80&w=1000&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?q=80&w=1000&auto=format&fit=crop",
     href: "/colecciones/anillos",
   },
   {
-    title: "Alta Joyería",
-    price: "Desde $890.000",
-    image: "https://images.unsplash.com/photo-1599643478524-fb66f70d00f8?q=80&w=1000&auto=format&fit=crop",
-    href: "/colecciones/alta-joyeria",
+    title: "Collares & Colgantes",
+    price: "Desde $280.000",
+    image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=1000&auto=format&fit=crop",
+    href: "/colecciones/collares",
   },
   {
-    title: "Colección Esenciales",
-    price: "Desde $120.000",
-    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000&auto=format&fit=crop",
-    href: "/colecciones/pulseras",
+    title: "Aros de Lujo",
+    price: "Desde $195.000",
+    image: "https://images.unsplash.com/photo-1629224316810-9d8805b95e76?q=80&w=1000&auto=format&fit=crop",
+    href: "/colecciones/aros",
   },
 ];
 

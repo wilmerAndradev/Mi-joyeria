@@ -71,68 +71,65 @@ export function Hero() {
       {/* Background Image */}
       <div 
         className="absolute inset-0 z-0 opacity-40 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1599643478524-fb66f70d00f8?q=80&w=2000&auto=format&fit=crop')" }}
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2000&auto=format&fit=crop')" }}
       />
       {/* Gradient vignette — onyx bottom, transparent top */}
       <div className="absolute inset-0 z-0 bg-gradient-to-t from-onyx via-onyx/50 to-transparent" />
       
       <ParticleCanvas />
 
-      <div className="container relative z-10 mx-auto px-6 text-center flex flex-col items-center">
+      <div className="container relative z-10 mx-auto px-6 text-center flex flex-col items-center pb-24 md:pb-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="mb-6 inline-flex items-center gap-3 text-xs font-normal tracking-[0.35em] text-gold/80 uppercase"
+          className="mb-8 inline-flex items-center gap-4 text-[10px] md:text-xs font-semibold tracking-[0.4em] text-gold/90 uppercase"
         >
-          <span className="w-6 h-px bg-gold/40" />
+          <span className="w-8 md:w-12 h-px bg-gold/40" />
           Colección Otoño — Invierno
-          <span className="w-6 h-px bg-gold/40" />
+          <span className="w-8 md:w-12 h-px bg-gold/40" />
         </motion.div>
         
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-          className="text-4xl md:text-6xl lg:text-7xl font-serif font-normal text-ivory mb-4 leading-[1.1] max-w-3xl tracking-tight"
+          className="flex flex-col items-center mb-6"
         >
-          El Arte de <br className="hidden md:block" /> lo <span className="italic text-gold">Eterno</span>
+          <span className="text-lg md:text-2xl font-serif text-ivory/90 mb-2 md:mb-4 tracking-wider">
+            Aleafar Alta Joyería
+          </span>
+          <span className="text-5xl md:text-7xl lg:text-8xl font-serif font-normal text-ivory leading-[1.05] tracking-tight drop-shadow-lg">
+            Elegancia <span className="italic text-gold font-light">Atemporal</span>
+          </span>
         </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.65, ease: "easeOut" }}
-          className="font-serif italic text-gold/90 text-xl md:text-2xl mb-8 tracking-wide"
-        >
-          Esto es tuyo. Siempre lo fue.
-        </motion.p>
         
         <motion.p 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="text-sm md:text-base text-ivory/70 max-w-md mb-12 font-normal tracking-wide leading-loose"
+          className="text-sm md:text-base lg:text-lg text-ivory/80 max-w-2xl mb-10 md:mb-12 font-light tracking-wide leading-relaxed drop-shadow-md"
         >
-          Joyería fina diseñada en Chile. Metales nobles y diamantes certificados para acompañar tus momentos más memorables.
+          Diseños exclusivos creados a mano en Chile con oro de 18 quilates y diamantes certificados. 
+          Encuentra la pieza perfecta que trascenderá generaciones.
         </motion.p>
         
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.1 }}
-          className="flex flex-col sm:flex-row gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto"
         >
-          {/* CTA Primary — Fondo Onyx, texto Ivory (SRS § 7.4 Primary) */}
-          <Button asChild size="lg" className="bg-gold text-onyx hover:brightness-110 text-xs font-normal tracking-[0.3em] uppercase px-10">
+          {/* CTA Primary */}
+          <Button asChild size="lg" className="w-full sm:w-auto bg-gold text-onyx hover:bg-ivory hover:text-onyx transition-all duration-500 text-xs font-semibold tracking-[0.2em] uppercase px-12 h-14 rounded-sm shadow-[0_0_20px_rgba(201,168,76,0.15)]">
             <Link href="/colecciones">
-              Ver Colección
+              Explorar Colección
             </Link>
           </Button>
-          {/* CTA Secondary — Borde gold, texto gold (SRS § 7.4 Secondary) */}
-          <Button asChild size="lg" variant="outline" className="text-xs font-normal tracking-[0.3em] uppercase border-ivory/30 text-ivory hover:bg-ivory hover:text-onyx px-10">
+          {/* CTA Secondary */}
+          <Button asChild size="lg" variant="outline" className="w-full sm:w-auto text-xs font-semibold tracking-[0.2em] uppercase border-ivory/30 text-ivory hover:bg-ivory hover:text-onyx transition-all duration-500 px-10 h-14 rounded-sm bg-transparent backdrop-blur-sm">
             <Link href="/arma-tu-set">
-              Arma tu Set
+              Diseñar Mi Set
             </Link>
           </Button>
         </motion.div>

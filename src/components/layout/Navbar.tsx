@@ -3,8 +3,8 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { Search, ShoppingBag, Heart, User, Menu } from "lucide-react";
+import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
+import { Search, ShoppingBag, Heart, User, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useCartStore } from "@/store/useCartStore";
 import { useWishlistStore } from "@/store/useWishlistStore";
@@ -26,6 +26,7 @@ export function Navbar() {
   const wishlistItems = useWishlistStore((state) => state.items);
   const [mounted, setMounted] = React.useState(false);
   const [isSearchOpen, setIsSearchOpen] = React.useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   React.useEffect(() => {
     setMounted(true);
@@ -79,7 +80,11 @@ export function Navbar() {
 
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Mobile Menu Toggle */}
-        <button className={cn("md:hidden p-2 -ml-2", textColor)} aria-label="Menu">
+        <button 
+          className={cn("md:hidden p-2 -ml-2", textColor)} 
+          aria-label="Menu"
+          onClick={() => setIsMobileMenuOpen(true)}
+        >
           <Menu className="w-6 h-6" />
         </button>
 
@@ -147,6 +152,65 @@ export function Navbar() {
         </div>
       </div>
     </motion.header>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: "-100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "-100%" }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="fixed inset-0 z-50 bg-onyx flex flex-col pt-20 px-8 pb-6"
+          >
+            <button 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="absolute top-6 right-6 p-2 text-ivory/60 hover:text-gold transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <nav className="flex flex-col gap-8 mt-12">
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={cn(
+                    "text-xl font-normal tracking-[0.15em] uppercase transition-colors hover:text-gold",
+                    pathname.startsWith(link.href) ? "text-gold" : "text-ivory"
+                  )}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <div className="w-12 h-px bg-gold/30 my-2" />
+              <Link
+                href="/login"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-lg font-normal tracking-[0.15em] uppercase transition-colors hover:text-gold text-ivory/80"
+              >
+                Mi Cuenta
+              </Link>
+              <Link
+                href="/wishlist"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-lg font-normal tracking-[0.15em] uppercase transition-colors hover:text-gold text-ivory/80 flex items-center gap-3"
+              >
+                Favoritos
+                {wishlistItems.length > 0 && (
+                  <span className="bg-gold text-onyx text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                    {wishlistItems.length}
+                  </span>
+                )}
+              </Link>
+            </nav>
+            
+            <div className="mt-auto pb-8">
+              <p className="font-serif italic text-gold text-2xl tracking-widest">Aleafar</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

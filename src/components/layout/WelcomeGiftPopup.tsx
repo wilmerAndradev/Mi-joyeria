@@ -8,30 +8,23 @@ import confetti from "canvas-confetti";
 const STORAGE_KEY = "aleafar-welcome-gift-seen-v5";
 
 export function WelcomeGiftPopup() {
-  // Lazy initializer runs synchronously on the very first render.
-  // This prevents any flash of the underlying page before the overlay appears.
-  const [step, setStep] = useState<1 | 2 | 3>(() => {
-    if (typeof window === "undefined") return 1; // SSR fallback — won't render anyway
-    return localStorage.getItem(STORAGE_KEY) ? 3 : 1;
-  });
+  // Hydration-safe state initialization
+  const [step, setStep] = useState<1 | 2 | 3>(1);
 
-  // Remove the server-rendered blur div once React has hydrated and taken control.
-  // For first-time visitors: our motion.div overlay covers the page seamlessly.
-  // For returning visitors: the blur fades out quickly.
   useEffect(() => {
     const el = document.getElementById("initial-blur");
-    if (!el) return;
-    if (step === 3) {
-      // Returning visitor — fade out the server blur quickly
-      el.style.transition = "opacity 0.4s ease";
-      el.style.opacity = "0";
-      setTimeout(() => el.remove(), 400);
+    const hasSeen = localStorage.getItem(STORAGE_KEY);
+
+    if (hasSeen) {
+      setStep(3);
+      if (el) {
+        el.style.transition = "opacity 0.4s ease";
+        el.style.opacity = "0";
+        setTimeout(() => el.remove(), 400);
+      }
     } else {
-      // First-time visitor — popup motion.div is already covering the page,
-      // remove the server blur instantly so they don't stack
-      el.remove();
+      if (el) el.remove();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleCloseImmediately = () => {

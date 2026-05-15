@@ -241,6 +241,39 @@ export function SetSummary() {
           )}
         </div>
       </div>
+
+      {/* ── Mobile Floating Action Bar ────────────────────────── */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-pearl-gray p-4 z-[60] shadow-[0_-4px_20px_rgba(0,0,0,0.08)] pb-[calc(env(safe-area-inset-bottom)+1rem)]">
+        <div className="flex justify-between items-center mb-3 px-2">
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-charcoal/60 mb-0.5">
+              Total ({count} {count === 1 ? 'pieza' : 'piezas'})
+            </p>
+            <p className="text-lg font-bold text-onyx leading-none">{formatPrice(finalTotal)}</p>
+          </div>
+          {pct > 0 && (
+            <div className="bg-gold text-onyx text-[10px] uppercase tracking-wider font-bold px-3 py-1.5 rounded-sm shadow-sm flex items-center gap-1">
+              <Sparkles className="w-3 h-3" />
+              -{pct}% OFF
+            </div>
+          )}
+        </div>
+        <button
+          onClick={handleAddToCart}
+          disabled={count === 0}
+          className={cn(
+            "w-full h-12 text-xs font-semibold transition-all duration-300 rounded-sm tracking-[0.1em] uppercase flex items-center justify-center gap-2",
+            count >= 2
+              ? "bg-gold text-onyx"
+              : count === 1
+              ? "bg-onyx text-ivory"
+              : "bg-pearl-gray text-charcoal/50 cursor-not-allowed"
+          )}
+        >
+          <ShoppingBag className="w-4 h-4" />
+          {count === 0 ? "SELECCIONA PIEZAS" : count === 1 ? "AGREGAR AL CARRITO" : "AGREGAR SET"}
+        </button>
+      </div>
     </aside>
   );
 }

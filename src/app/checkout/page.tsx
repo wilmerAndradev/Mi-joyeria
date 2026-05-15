@@ -103,10 +103,10 @@ export default function CheckoutPage() {
     <div className="min-h-screen bg-ivory">
       <div className="max-w-6xl mx-auto px-4 md:px-10 py-8 md:py-12">
         <StepBar step={step} />
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8 items-start">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-[1fr_380px] gap-8 items-start">
 
           {/* ── FORM ── */}
-          <div className="space-y-4">
+          <div className="space-y-4 w-full">
 
             {/* STEP 1 — Contact */}
             <AnimatePresence mode="wait">
@@ -310,7 +310,7 @@ export default function CheckoutPage() {
           </div>
 
           {/* ── ORDER SUMMARY (desktop sticky) ── */}
-          <div className="hidden lg:block sticky top-24">
+          <div className="w-full lg:sticky lg:top-24">
             <OrderSummary shippingCost={shipCost} coupon={coupon} couponValid={couponValid}
               onCouponChange={setCoupon} onCouponApply={() => setCouponValid(coupon === "WELCOME10")} />
           </div>

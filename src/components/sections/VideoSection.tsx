@@ -16,7 +16,7 @@ const SHOPPABLE_VIDEOS = [
     category: "Anillos",
     // Using stable mp4 video placeholders from coverr - substitute these with real product videos
     videoSrc: "https://cdn.coverr.co/videos/coverr-woman-wearing-diamond-ring-3814/1080p.mp4",
-    poster: "https://images.unsplash.com/photo-1605100804763-247f66156ce4?q=80&w=400&auto=format&fit=crop",
+    poster: "https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?q=80&w=400&auto=format&fit=crop",
   },
   {
     id: 2,

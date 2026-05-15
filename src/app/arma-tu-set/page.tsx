@@ -145,7 +145,7 @@ export default function ArmatuSetPage() {
       </section>
 
       {/* ── Bottom note ───────────────────────────────────── */}
-      <div className="border-t border-pearl-gray py-6 mt-4">
+      <div className="border-t border-pearl-gray py-6 mt-4 pb-32 lg:pb-6">
         <div className="container mx-auto px-6">
           <p className="text-center text-[13px] text-charcoal/70 font-light">
             ✦ Los descuentos de set se aplican automáticamente al agregar al carrito · Válido para sets de 2 a 4 piezas de distintas categorías

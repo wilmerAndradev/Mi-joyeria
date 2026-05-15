@@ -92,7 +92,7 @@ export function SetPreview() {
                   animate={{ rotate: -360 }}
                   transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                 >
-                  <Image src="https://images.unsplash.com/photo-1605100804763-247f66156ce4?q=80&w=200&auto=format&fit=crop" alt="Anillo" fill className="object-cover" sizes="(max-width: 768px) 64px, 96px" />
+                  <Image src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?q=80&w=200&auto=format&fit=crop" alt="Anillo" fill className="object-cover" sizes="(max-width: 768px) 64px, 96px" />
                 </motion.div>
                 
                 {/* Earrings (Bottom Right) */}

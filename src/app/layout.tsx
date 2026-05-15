@@ -78,7 +78,7 @@ export default function RootLayout({
       lang="es"
       className={`${josefin.variable} ${playfair.variable} ${cormorant.variable} h-full antialiased`}
     >
-      <body suppressHydrationWarning className="min-h-full flex flex-col font-sans text-onyx bg-ivory">
+      <body suppressHydrationWarning className="min-h-full flex flex-col font-sans text-onyx bg-ivory overflow-x-hidden">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -9,7 +9,7 @@ const CATEGORY_IMAGES: Record<SetCategory, string> = {
   collares:
     "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=600&auto=format&fit=crop",
   anillos:
-    "https://images.unsplash.com/photo-1605100804763-247f66156ce4?q=80&w=600&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?q=80&w=600&auto=format&fit=crop",
   aros: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600&auto=format&fit=crop",
   pulseras:
     "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=600&auto=format&fit=crop",

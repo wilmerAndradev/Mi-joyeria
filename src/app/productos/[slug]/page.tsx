@@ -32,7 +32,7 @@ function Gallery({ images, productName }: { images: string[]; productName: strin
   return (
     <div className="flex flex-col-reverse md:flex-row gap-4">
       {/* Thumbnails */}
-      <div className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible">
+      <div className="flex md:flex-col gap-3 overflow-x-auto md:overflow-visible pb-2 md:pb-0 scrollbar-hide">
         {images.map((img, i) => (
           <button
             key={i}
@@ -48,7 +48,7 @@ function Gallery({ images, productName }: { images: string[]; productName: strin
       </div>
 
       {/* Main Image */}
-      <div className="relative flex-1 aspect-square overflow-hidden bg-pearl-gray rounded-sm group cursor-zoom-in"
+      <div className="relative w-full md:flex-1 aspect-square overflow-hidden bg-pearl-gray rounded-sm group cursor-zoom-in"
         onMouseEnter={() => setZoomed(true)}
         onMouseLeave={() => setZoomed(false)}
         onMouseMove={handleMouseMove}
@@ -229,7 +229,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
       />
       {/* Breadcrumb */}
       <div className="container mx-auto px-6 py-4 border-b border-pearl-gray">
-        <nav className="flex items-center gap-2 text-xs tracking-[0.15em] uppercase text-charcoal">
+        <nav className="flex flex-wrap items-center gap-2 text-[10px] md:text-xs tracking-[0.15em] uppercase text-charcoal">
           <Link href="/" className="hover:text-gold transition-colors">Inicio</Link>
           <span>/</span>
           <Link href="/colecciones" className="hover:text-gold transition-colors">Colecciones</Link>
