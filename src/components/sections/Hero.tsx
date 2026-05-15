@@ -79,39 +79,22 @@ export function Hero() {
       <ParticleCanvas />
 
       <div className="container relative z-10 mx-auto px-6 text-center flex flex-col items-center pb-24 md:pb-0">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="mb-8 inline-flex items-center gap-4 text-[10px] md:text-xs font-semibold tracking-[0.4em] text-gold/90 uppercase"
-        >
-          <span className="w-8 md:w-12 h-px bg-gold/40" />
-          Colección Otoño — Invierno
-          <span className="w-8 md:w-12 h-px bg-gold/40" />
-        </motion.div>
-        
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-          className="flex flex-col items-center mb-6"
+          className="text-5xl md:text-7xl lg:text-8xl font-serif font-normal text-ivory leading-[1.05] tracking-tight drop-shadow-lg mb-6 text-center"
         >
-          <span className="text-lg md:text-2xl font-serif text-ivory/90 mb-2 md:mb-4 tracking-wider">
-            Aleafar Alta Joyería
-          </span>
-          <span className="text-5xl md:text-7xl lg:text-8xl font-serif font-normal text-ivory leading-[1.05] tracking-tight drop-shadow-lg">
-            Elegancia <span className="italic text-gold font-light">Atemporal</span>
-          </span>
+          Elegancia <br className="md:hidden" /><span className="italic text-gold font-light">Atemporal</span>
         </motion.h1>
         
         <motion.p 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="text-sm md:text-base lg:text-lg text-ivory/80 max-w-2xl mb-10 md:mb-12 font-light tracking-wide leading-relaxed drop-shadow-md"
+          className="text-sm md:text-base lg:text-lg text-ivory/80 max-w-2xl mb-10 md:mb-12 font-light tracking-wide leading-relaxed drop-shadow-md text-center"
         >
-          Diseños exclusivos creados a mano en Chile con oro de 18 quilates y diamantes certificados. 
-          Encuentra la pieza perfecta que trascenderá generaciones.
+          Alta joyería diseñada a mano en Chile. Oro de 18k y diamantes certificados para acompañar tus momentos más memorables.
         </motion.p>
         
         <motion.div 
